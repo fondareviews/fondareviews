@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio de reseñas y artículos de Tu Nombre: periodista y crítico musical especializado. Análisis de discos, directos y tendencias.">
+  <title>Tu Nombre — Crítico musical y periodista especializado</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0f14; --card:#111826; --muted:#95a3b3; --text:#e8eef6; --brand:#6aa1ff; --accent:#9ef0a8;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),#0e1320);color:var(--text)}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    header{position:sticky;top:0;background:rgba(11,15,20,.75);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.06);z-index:10}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:.6rem;font-weight:800;letter-spacing:.2px}
+    .logo{width:28px;height:28px;border-radius:9px;background:linear-gradient(135deg,var(--brand),var(--accent));box-shadow:0 6px 18px rgba(106,161,255,.35)}
+    .menu{display:flex;gap:22px}
+    .menu a{opacity:.9}
+    .menu a:hover{opacity:1}
+    .cta{background:var(--brand);color:#07121e;padding:10px 16px;border-radius:12px;font-weight:700;box-shadow:0 8px 20px rgba(106,161,255,.35)}
+
+    /* Hero */
+    .hero{padding:72px 0 36px}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:36px;align-items:center}
+    h1{font-size:clamp(32px,5vw,56px);line-height:1.05;margin:0 0 12px}
+    .lead{font-size:clamp(16px,2.3vw,20px);color:var(--muted);margin:0 0 26px}
+    .hero .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{padding:12px 18px;border-radius:14px;font-weight:700;border:1px solid rgba(255,255,255,.08)}
+    .btn.primary{background:var(--brand);color:#06101c;border-color:transparent}
+    .btn.ghost{background:transparent;color:var(--text)}
+    .card{background:linear-gradient(180deg,var(--card),#0c1525);border:1px solid rgba(255,255,255,.06);border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:22px}
+    .stat{display:grid;grid-template-columns:auto 1fr;gap:8px 14px;align-items:center}
+    .stat .kpi{font-size:28px;font-weight:800}
+    .stat small{color:var(--muted)}
+
+    /* Secciones */
+    section{padding:54px 0;border-top:1px solid rgba(255,255,255,.06)}
+    h2{font-size:clamp(24px,3.4vw,34px);margin:0 0 22px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .feature{padding:18px;border-radius:16px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06)}
+    .feature h3{margin:.3rem 0 .2rem;font-size:18px}
+    .feature p{margin:.2rem 0;color:var(--muted)}
+
+    /* Precios */
+    .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .price-card{padding:22px;border-radius:18px;border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,#0f1830,#0d1426)}
+    .price-card.pop{outline:2px solid var(--brand);transform:translateY(-3px)}
+    .price{font-size:34px;font-weight:800;margin:.4rem 0}
+    .price small{font-weight:400;color:var(--muted)}
+    .price-card ul{padding-left:18px;line-height:1.9;color:var(--muted)}
+
+    /* Contacto */
+    form{display:grid;gap:12px}
+    input, textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.1);background:#0b1220;color:var(--text)}
+    input:focus, textarea:focus{outline:2px solid var(--brand);}
+    .footer{padding:26px 0;color:var(--muted);font-size:14px}
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid-3, .pricing{grid-template-columns:1fr}
+      .menu{display:none}
+      .menu.open{display:flex;flex-direction:column;gap:14px;padding:12px 0}
+      .nav .mobile-toggle{display:block}
+    }
+    .nav .mobile-toggle{display:none;background:transparent;border:1px solid rgba(255,255,255,.1);padding:8px 10px;border-radius:10px}
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Tu Nombre",
+    "jobTitle": "Crítico musical",
+    "url": "https://tu-dominio.com/",
+    "sameAs": [
+      "https://www.youtube.com/@TU_CANAL",
+      "https://www.instagram.com/TU_USUARIO",
+      "https://twitter.com/TU_USUARIO"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#inicio" class="brand"><span class="logo" aria-hidden="true"></span> Tu Nombre</a>
+      <nav id="menu" class="menu" aria-label="Principal">
+        <a href="#resenas">Reseñas</a>
+        <a href="#rankings">Rankings</a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#contacto" class="cta">Contacto</a>
+      </nav>
+      <button class="mobile-toggle" aria-label="Abrir menú" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+    </div>
+  </header>
+
+  <main id="inicio" class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1>Crítica musical con criterio y contexto</h1>
+        <p class="lead">Soy <strong>Tu Nombre</strong>, periodista y crítico musical. En esta web recopilo mis reseñas de YouTube, listas y artículos para ayudarte a descubrir música con una mirada especializada.</p>
+        <div class="actions">
+          <a class="btn primary" href="#resenas">Ver últimas reseñas</a>
+          <a class="btn ghost" href="#sobre-mi">Conóceme</a>
+        </div>
+        <div class="card" style="margin-top:22px">
+          <div class="stat">
+            <div class="kpi">+200</div>
+            <small>videos y reseñas publicadas</small>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <iframe width="100%" height="315" style="border-radius:12px" src="https://www.youtube.com/embed?listType=playlist&list=PL_EJEMPLO_TU_PLAYLIST" title="Últimas reseñas en YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <small style="color:var(--muted)">Sección enlazada a tu playlist de reseñas en YouTube (cambia el ID)</small>
+      </div>
+    </div>
+  </main>
+
+  <section id="resenas">
+    <div class="container">
+      <h2>Últimas reseñas</h2>
+      <div class="grid-3">
+        <!-- Reemplaza los IDs de video (VIDEO_ID) con los tuyos -->
+        <a class="feature" href="https://www.youtube.com/watch?v=VIDEO_ID_1" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/VIDEO_ID_1/hqdefault.jpg" alt="Reseña 1" style="width:100%;border-radius:12px;margin-bottom:10px"/>
+          <h3>Artista — Álbum/Single</h3>
+          <p>Impresiones rápidas y veredicto en 3 minutos.</p>
+        </a>
+        <a class="feature" href="https://www.youtube.com/watch?v=VIDEO_ID_2" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/VIDEO_ID_2/hqdefault.jpg" alt="Reseña 2" style="width:100%;border-radius:12px;margin-bottom:10px"/>
+          <h3>Artista — Álbum/Single</h3>
+          <p>Producción, letras y contexto histórico.</p>
+        </a>
+        <a class="feature" href="https://www.youtube.com/watch?v=VIDEO_ID_3" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/VIDEO_ID_3/hqdefault.jpg" alt="Reseña 3" style="width:100%;border-radius:12px;margin-bottom:10px"/>
+          <h3>Artista — Álbum/Single</h3>
+          <p>Puntos fuertes, debilidades y para quién es.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="rankings">
+    <div class="container">
+      <h2>Rankings & listas</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <h3>Top discos del mes</h3>
+          <p>Selección curada por géneros y estados de ánimo.</p>
+        </div>
+        <div class="feature">
+          <h3>Mejores lanzamientos emergentes</h3>
+          <p>Nuevos artistas a seguir, con ficha rápida.</p>
+        </div>
+        <div class="feature">
+          <h3>Clásicos imprescindibles</h3>
+          <p>Contexto histórico y por qué siguen importando.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre-mi">
+    <div class="container">
+      <h2>Sobre mí</h2>
+      <div class="grid-3" style="grid-template-columns:1fr 2fr">
+        <div class="feature">
+          <h3>Tu Nombre</h3>
+          <p>Periodista y crítico musical. Máster en Marketing Digital.</p>
+          <p>Contacto de prensa: <a href="mailto:prensa@tu-dominio.com">prensa@tu-dominio.com</a></p>
+        </div>
+        <div class="feature">
+          <h3>Enfoque</h3>
+          <p>Analizo lanzamientos con metodología clara: producción, letra, concepto, impacto cultural y performance en directo.</p>
+          <p>Trabajo con marcas y medios para crear contenido editorial y branded que respete al oyente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="colabora">
+    <div class="container">
+      <h2>Colabora</h2>
+      <div class="pricing">
+        <div class="price-card">
+          <h3>Prensa & medios</h3>
+          <p class="price">A consultar <small>por pieza</small></p>
+          <ul>
+            <li>Críticas y coberturas</li>
+            <li>Entrevistas</li>
+            <li>Notas y artículos de opinión</li>
+          </ul>
+          <a class="btn ghost" href="#contacto">Solicitar dossier</a>
+        </div>
+        <div class="price-card pop">
+          <h3>Branded content</h3>
+          <p class="price">A medida <small>por campaña</small></p>
+          <ul>
+            <li>Vídeos/reseñas patrocinadas (disclaimer)</li>
+            <li>Integraciones en YouTube</li>
+            <li>Amplificación en redes</li>
+          </ul>
+          <a class="btn primary" href="#contacto">Propuesta</a>
+        </div>
+        <div class="price-card">
+          <h3>Consultoría</h3>
+          <p class="price">€80/h <small>IVA no incl.</small></p>
+          <ul>
+            <li>Estrategia de lanzamiento</li>
+            <li>Auditoría de press kit</li>
+            <li>Pitch a medios</li>
+          </ul>
+          <a class="btn ghost" href="#contacto">Reserva</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="container">
+      <h2>Contacto</h2>
+      <p class="lead">¿Colaboramos? Escríbeme con tu propuesta o envíame tu press kit.</p>
+      <form onsubmit="event.preventDefault(); window.location.href='mailto:prensa@tu-dominio.com?subject=Contacto%20web&body=' + encodeURIComponent(document.getElementById('mensaje').value)">
+        <input type="text" name="nombre" placeholder="Tu nombre" required>
+        <input type="email" name="email" placeholder="Tu email" required>
+        <textarea id="mensaje" rows="5" placeholder="Cuéntame brevemente tu idea o necesidad" required></textarea>
+        <button class="btn primary" type="submit">Enviar</button>
+      </form>
+      <p style="margin-top:10px;color:var(--muted)">También en YouTube: <a href="https://www.youtube.com/@TU_CANAL" target="_blank" rel="noopener">@TU_CANAL</a></p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      © <span id="y"></span> Tu Nombre · <a href="#">Privacidad</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
